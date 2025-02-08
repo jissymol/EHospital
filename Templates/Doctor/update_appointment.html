@@ -1,0 +1,40 @@
+
+
+
+
+
+
+<form id="statusForm" method="POST">
+    {% csrf_token %}
+    <label for="status">Update Status:</label>
+    <select name="status" id="status">
+        <option value="Completed" {% if appointment.status == "Completed" %}selected{% endif %}>Completed</option>
+        <option value="Rescheduled" {% if appointment.status == "Rescheduled" %}selected{% endif %}>Rescheduled</option>
+        <option value="Cancelled" {% if appointment.status == "Cancelled" %}selected{% endif %}>Cancelled</option>
+    </select>
+    <button type="submit">Update</button>
+</form>
+<div id="statusMessage"></div>
+
+<script>
+    document.getElementById("statusForm").addEventListener("submit", function(event) {
+        event.preventDefault();  // Prevent default form submission
+
+        let formData = new FormData(this);
+        fetch("{% url 'update_appointment_status' appointment.id %}", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "X-CSRFToken": "{{ csrf_token }}"
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById("statusMessage").innerHTML = "Status updated successfully!";
+            } else {
+                document.getElementById("statusMessage").innerHTML = "Error updating status.";
+            }
+        });
+    });
+</script>

@@ -1,0 +1,21 @@
+{% extends 'Admin/index.html' %}
+{% load static %}
+
+{% block title %}
+Details of Users
+{% endblock %}
+
+{% block content %}
+
+
+<form method="POST" enctype="multipart/form-data">
+    				{% csrf_token %}
+    				{{ form.as_p }}
+    			<div class="form-group">
+        <input type="submit" value="Add Doctor" class="btn btn-primary py-3 px-5">
+    </div>
+</form>
+
+
+
+{% endblock %}

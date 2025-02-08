@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+{% include 'Doctor/header.html' %}
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Doctors Home </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Doctor/assets/img/favicon.ico' %}">
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animated-headline.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/fontawesome-all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/style.css' %}">
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'Record/fonts/icomoon/style.css' %}">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'Record/css/bootstrap.min.css' %}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'Record/css/style.css' %}">
+
+    <title>Medical record form</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+        <h2>Are you sure you want to delete this medical record?</h2>
+        <p>Patient: <strong>{{ medical_record.patient_name.Name }}</strong></p>
+        <p>Doctor: <strong>Dr. {{ medical_record.doctor_name.D_name }}</strong></p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+<a href="{% url 'medical_records_list' appointment_id=medical_record.patient_name.id %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+
+
+      <script src="{% static 'Record/js/popper.min.js' %}"></script>
+    <script src="{% static 'Record/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Record/js/main.js' %}"></script>
+
+</body>
+</html>
+{% include 'Doctor/footer.html' %}

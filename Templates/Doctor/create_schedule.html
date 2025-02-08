@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+
+{% load static %}
+{% include 'Doctor/header.html' %}
+
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Doctors Home </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Doctor/assets/img/favicon.ico' %}">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animated-headline.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/fontawesome-all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/style.css' %}">
+</head>
+ <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 text-center">
+                         <div class="section-tittle text-center mb-100">
+                        <h2>Create Schedule</h2>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+
+        <form class="form-contact contact_form"  method="post"  novalidate="novalidate" action="{% url 'create_schedule' %}">
+            {% csrf_token %}
+            <div class="form-group">
+
+                <select class="form-control" id="doctor" name="doctor" required>
+                    <option value="" disabled {% if not selected_doctor %}selected{% endif %}>---Select Doctors---</option>
+                    {% for doctor in doctors %}
+                        <option value="{{ doctor.id }}" {% if doctor.id == selected_doctor %}selected{% endif %}>
+                            {{ doctor.D_name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Available</label>
+
+                        <input class="form-control valid" name="available_date" id="available_date" type="date" placeholder="Available Date:">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Time at Start</label>
+                        <input class="form-control valid" name="time_slot" id="time_slot" type="time" placeholder="Time Slot" >
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Time at End</label>
+
+                    <input class="form-control valid" name="time_end_slot" id="time_end_slot" type="time" placeholder="End Time">
+                </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <textarea class="form-control" name="special_notes" id="special_notes" placeholder="Special Notes"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-3 text-center">
+                <button type="submit" class="button button-contactForm boxed-btn">Create Schedule</button>
+            </div>
+                                        <a href="{% url 'list_schedules' %}">Add New Schedule</a>
+
+        </form>
+    </div>
+</div>
+
+
+    <!-- JS here -->
+
+    <script src="{% static 'Doctor/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'Doctor/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/bootstrap.min.js' %}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{% static 'Doctor/assets/js/jquery.slicknav.min.js' %}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{% static 'Doctor/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/slick.min.js' %}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{% static 'Doctor/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/animated.headline.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.magnific-popup.js' %}"></script>
+
+    <!-- Date Picker -->
+    <script src="{% static 'Doctor/assets/js/gijgo.min.js' %}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{% static 'Doctor/assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.sticky.js' %}"></script>
+
+    <!-- counter , waypoint -->
+    <script src="{% static 'Doctor/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.countdown.min.js' %}"></script>
+    <!-- contact js -->
+    <script src="{% static 'Doctor/assets/js/contact.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.form.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/mail-script.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="{% static 'Doctor/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/main.js' %}"></script>
+
+
+
+
+
+</body>
+</html>
+{% include 'Doctor/footer.html' %}

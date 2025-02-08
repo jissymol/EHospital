@@ -1,0 +1,179 @@
+
+<!doctype html>
+{% load static %}
+{% include 'Doctor/header.html' %}
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Doctors Home </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Doctor/assets/img/favicon.ico' %}">
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animated-headline.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/fontawesome-all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/style.css' %}">
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{% static 'Doctor/assets/img/logo/loder.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+<main>
+    <!--? Hero Start -->
+
+
+
+<div class="contact-form-main">
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-xl-7 col-lg-7">
+                    <div class="form-wrapper">
+                        <div>
+<a class="d-flex justify-content-end" href="{% url 'add_medical_record' appointment.id %}" style="font-weight: bold; font-size: 18px; color: #007BFF;  text-decoration: underline;">{{ appointment.patient_name.Name }} Record Form </a>
+
+                        </div>
+                        <!--Section Tittle  -->
+                        <div class="form-tittle">
+                            <div class="row ">
+                                <div class="col-xl-12">
+                                    <div class="section-tittle section-tittle2">
+                                        <span>Patient Prescription Form</span>
+                                        <h2>Prescription</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <!--End Section Tittle  -->
+<form id="contact-form" action="{% url 'prescription' appointment.id %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="form-box user-icon mb-30">
+                <input type="text" name="name" id="name" placeholder="" value="{{ appointment.patient_name.Name }}" readonly style="font-weight: bold; font-size: 18px; color: #333;">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="form-box email-icon mb-30">
+                <input type="text" name="medication" id="medication" placeholder="Medication Name">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mb-30">
+            <input type="text" name="dosage" id="dosage" placeholder="Dosage">
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="form-box subject-icon mb-30">
+                <input type="text" name="frequency" id="frequency" placeholder="Frequency">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="form-box subject-icon mb-30">
+                <input type="text" name="Pharmacy" id="pharmacy" placeholder="Pharmacy">
+            </div>
+        </div>
+
+        <!-- Doctor's Name field -->
+        <div class="col-lg-6 col-md-6">
+            <div class="form-box subject-icon mb-30">
+                <input type="text" name="doctor_name" id="doctor_name" placeholder="Doctor's Name" value="Dr.{{ form.doctor_name.value }}" readonly style="font-weight: bold; font-size: 18px; color: #333;">
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="form-box message-icon mb-65">
+                <textarea name="notes" id="note" placeholder="Notes"></textarea>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12 text-end">
+                    <button class="btn btn-primary" type="submit">Submit Now <i class="ti-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- contact left Img-->
+        <div class="from-left d-none d-lg-block">
+            <img src="{% static 'Doctor/assets/img/gallery/contact_form.png' %}" alt="">
+        </div>
+    </div>
+
+
+
+
+
+    <!-- JS here -->
+
+    <script src="{% static 'Doctor/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'Doctor/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/bootstrap.min.js' %}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{% static 'Doctor/assets/js/jquery.slicknav.min.js' %}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{% static 'Doctor/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/slick.min.js' %}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{% static 'Doctor/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/animated.headline.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.magnific-popup.js' %}"></script>
+
+    <!-- Date Picker -->
+    <script src="{% static 'Doctor/assets/js/gijgo.min.js' %}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{% static 'Doctor/assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.sticky.js' %}"></script>
+
+    <!-- counter , waypoint -->
+    <script src="{% static 'Doctor/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.countdown.min.js' %}"></script>
+    <!-- contact js -->
+    <script src="{% static 'Doctor/assets/js/contact.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.form.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/mail-script.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="{% static 'Doctor/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/main.js' %}"></script>
+
+    </body>
+</html>
+{% include 'Doctor/footer.html' %}

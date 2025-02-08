@@ -1,0 +1,115 @@
+<!doctype html>
+{% load static %}
+{% include 'Patient/header.html' %}
+<html class="no-js" lang="zxx">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+  <meta name="author" content="themefisher.com">
+
+  <title>Novena- Health & Care Medical template</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'Patient/images/favicon.ico' %}" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/icofont/icofont.min.css' %}">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick-theme.css' %}">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'Patient/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Patient/style.css' %}">
+
+
+
+</head>
+
+<body id="top">
+
+
+
+
+
+</body>
+
+<div class="container mt-5 px-5">
+    <div class="row">
+        <!-- Left Side: Payment Form -->
+        <div class="col-md-8">
+            <div class="card p-4 shadow">
+                <div class="mb-4">
+                    <h2>Payment</h2>
+                </div>
+
+                <form method="POST" action="{% url 'payment' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="billing_id" value="{{ billing.billing_id }}">
+
+                    <div class="inputbox mt-3">
+                        <input type="text" name="patient_name" class="form-control" value="{{ patient.Name }}" readonly>
+
+                    </div>
+
+                    <div class="inputbox mt-3">
+                        <input type="text" name="amount_due" class="form-control" value="">
+                        <span>Amount</span>
+                    </div>
+
+                    <div class="inputbox mt-3">
+                        <input type="text" name="insurance_details" class="form-control">
+                        <span>Insurance Details</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-4 w-100">Pay</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Side: Payment Method Selection -->
+        <div class="col-md-4">
+            <div class="card p-4 shadow">
+                <h5 class="text-center">Select Payment Method</h5>
+                <div class="list-group mt-3">
+                    {% for method, display_name in billing.PAYMENT_METHODS %}
+                    <label class="list-group-item d-flex justify-content-between align-items-center">
+                        <input type="radio" name="payment_method" value="{{ method }}" required>
+                        {{ display_name }}
+                        <i class="fa fa-credit-card"></i>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Main jQuery -->
+    <script src="{% static 'Patient/plugins/jquery/jquery.js' %}"></script>
+    <!-- Bootstrap 4.3.2 -->
+    <script src="{% static 'Patient/plugins/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'Patient/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Patient/plugins/counterup/jquery.easing.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'Patient/plugins/slick-carousel/slick/slick.min.js' %}"></script>
+    <!-- Counterup -->
+    <script src="{% static 'Patient/plugins/counterup/jquery.waypoints.min.js' %}"></script>
+
+    <script src="{% static 'Patient/plugins/shuffle/shuffle.min.js' %}"></script>
+    <script src="{% static 'Patient/plugins/counterup/jquery.counterup.min.js' %}"></script>
+    <!-- Google Map -->
+    <script src="{% static 'Patient/plugins/google-map/map.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
+    <script src="{% static 'Patient/js/script.js' %}"></script>
+    <script src="{% static 'Patient/js/contact.js' %}"></script>
+
+</main>
+    </body>
+</html>
+
+{% include 'Patient/footer.html' %}

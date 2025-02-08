@@ -1,0 +1,55 @@
+
+{% load static %}
+
+<header>
+    <!--? Header Start -->
+    <div class="header-area">
+        <div class="main-header header-sticky">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- Logo -->
+                    <div class="col-xl-2 col-lg-2 col-md-1">
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'Doctor/assets/img/logo/logo.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10 col-md-10">
+                        <div class="menu-main d-flex align-items-center justify-content-end">
+                            <!-- Main-menu -->
+                            <div class="main-menu f-right d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="{% url 'Doctorhome' %}">Home</a></li>
+                                        <li><a href="{% url 'doctors' %}">Doctors</a></li>
+                                        <li><a href="{% url 'view_department' %}">Department</a></li>
+                                        <li><a href="blog.html">Schedules</a>
+                                            <ul class="submenu">
+                                                <li><a href="{% url 'create_schedule' %}">Create Available dates</a></li>
+                                                <li><a href="{% url 'view_appointments' %}">Confirm Appointments</a></li>
+                                            </ul>
+                                        </li>
+                                          <li><a href="blog.html">Appointments</a>
+                                            <ul class="submenu">
+                                                <li><a href="{% url 'view_completed_appointment' %}">Appointments</a></li>
+                                                                                        </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                                <a href="{% url 'doctor_logout' %}" class="btn header-btn">Logout</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>

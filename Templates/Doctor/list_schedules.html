@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+{% load static %}
+{% include 'Doctor/header.html' %}
+
+<head>
+    <title>Doctor Schedules</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Doctors Home </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Doctor/assets/img/favicon.ico' %}">
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animated-headline.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/fontawesome-all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/style.css' %}">
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'Record/fonts/icomoon/style.css' %}">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'Record/css/bootstrap.min.css' %}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'Record/css/style.css' %}">
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+  <meta name="author" content="themefisher.com">
+
+  <title>Novena- Health & Care Medical template</title>
+
+  <!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'Patient/images/logo.png' %}" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/icofont/icofont.min.css' %}">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick-theme.css' %}">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'Patient/css/style.css' %}">
+</head>
+<body>
+
+
+
+
+    <a href="{% url 'create_schedule' %}">Add New Schedule</a>
+
+
+
+            {% for schedule in schedules %}
+
+<div class="col-lg-12 mb-5">
+		<div class="single-blog-item">
+				<div class="sidebar-widget schedule-widget mb-3">
+		<h5 class="mb-4">Time Schedule</h5>
+
+		<ul class="list-unstyled">
+            <li class="d-flex justify-content-between align-items-center">
+                <span>Date:</span>
+		    <a href="#">{{schedule.available_date}}</a>
+
+
+		  </li>
+		  <li class="d-flex justify-content-between align-items-center">
+		    <a href="#">Monday - Friday</a>
+		    <span>{{ schedule.time_slot }} - {{ schedule.time_end_slot}}</span>
+
+		  </li>
+		  <li class="d-flex justify-content-between align-items-center">
+		    <a href="#">Saturday</a>
+		    <span>{{ schedule.time_slot }}</span>
+		  </li>
+		  <li class="d-flex justify-content-between align-items-center">
+		    <a href="#">Sunday</a>
+		    <span>Not Available</span>
+		  </li>
+		</ul>
+
+		<div class="sidebar-contatct-info mt-4">
+			<p class="mb-0">{{schedule.special_notes}}</p>
+<form method="post" action="{% url 'delete_schedule' schedule.id %}">
+                            {% csrf_token %}
+<button type="submit" class="btn btn-danger">Delete</button>
+                        </form>		</div>
+	</div>
+			<div class="blog-item-content mt-5">
+				<div class="blog-item-meta mb-3">
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+                {% endfor %}
+
+
+  <script src="{% static 'Patient/plugins/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'Patient/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'Patient/plugins/slick-carousel/slick/slick.min.js' %}"></script>
+    <!-- Counterup -->
+
+    <script src="{% static 'Patient/plugins/shuffle/shuffle.min.js' %}"></script>
+    <!-- Google Map -->
+    <script src="{% static 'Patient/plugins/google-map/map.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
+    <script src="{% static 'Patient/js/script.js' %}"></script>
+    <script src="{% static 'Patient/js/contact.js' %}"></script>
+
+    <script src="{% static 'Record/js/popper.min.js' %}"></script>
+    <script src="{% static 'Record/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Record/js/main.js' %}"></script>
+
+</body>
+</html>

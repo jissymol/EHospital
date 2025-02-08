@@ -1,0 +1,125 @@
+<!doctype html>
+{% load static %}
+{% include 'Doctor/header.html' %}
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Doctors Home </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Doctor/assets/img/favicon.ico' %}">
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animated-headline.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/fontawesome-all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/style.css' %}">
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'Record/fonts/icomoon/style.css' %}">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'Record/css/bootstrap.min.css' %}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'Record/css/style.css' %}">
+
+    <title>Medical record form</title>
+  </head>
+  <body>
+
+
+  <div class="content">
+
+    <div class="container">
+      <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="col-md-12">
+          <div class="form h-100">
+            <h3>Medical Record Form</h3>
+<form class="mb-5" method="post" id="contactForm" action="{% url 'add_medical_record' appointment.id %}">
+    {% csrf_token %}
+    <div class="row">
+        <!-- Patient Name (Auto-filled) -->
+        <div class="col-md-6 form-group mb-3">
+            <label class="col-form-label">Patient Name *</label>
+            <input type="text" class="form-control" value="{{ patient.Name }}" readonly>
+        </div>
+
+        <!-- Doctor Name (Auto-filled) -->
+        <div class="col-md-6 form-group mb-3">
+            <label class="col-form-label">Doctor Name *</label>
+            <input type="text" class="form-control" value="Dr. {{ doctor.D_name }}" readonly>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Current Diagnosis -->
+        <div class="col-md-6 form-group mb-3">
+            <label class="col-form-label">Current Diagnosis *</label>
+            <input type="text" class="form-control" name="current_diagnosis" placeholder="Enter Diagnosis">
+        </div>
+
+        <!-- Allergies -->
+        <div class="col-md-6 form-group mb-3">
+            <label class="col-form-label">Allergies *</label>
+            <input type="text" class="form-control" name="allergies" placeholder="Enter Allergies">
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Medications -->
+        <div class="col-md-12 form-group mb-3">
+            <label class="col-form-label">Medications *</label>
+            <textarea class="form-control" name="medications" cols="30" rows="4" placeholder="Enter Medications"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Medical History -->
+        <div class="col-md-12 form-group mb-3">
+            <label class="col-form-label">Medical History</label>
+            <textarea class="form-control" name="medical_history" cols="30" rows="4" placeholder="Enter Medical History"></textarea>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input type="submit" value="Upload" class="btn btn-primary rounded-0 py-2 px-4">
+        </div>
+    </div>
+</form>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+    <script src="{% static 'Record/js/popper.min.js' %}"></script>
+    <script src="{% static 'Record/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Record/js/main.js' %}"></script>
+
+  </body>
+</html>
+{% include 'Doctor/footer.html' %}

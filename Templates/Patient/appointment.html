@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'Patient/header.html' %}
+
+<html lang="zxx">
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                "X-CSRFToken": '{{ csrf_token }}'
+            }
+        });
+
+        $('#department').change(function () {
+            var department = $(this).val();
+
+            $.ajax({
+                type: "POST",
+                url: '{% url "fill_doctors" %}',
+                data: { department: department },
+                dataType: "json",
+                success: function (data) {
+                    $('#doctor').empty();
+                    var opt = $('<option />');
+                    opt.val(0);
+                    opt.text('--Select--');
+                    $('#doctor').append(opt);
+
+                    $.each(data, function (key, val) {
+                        var opt = $('<option />');
+                        opt.val(val.id);
+                        opt.text(val.D_name);
+                        $('#doctor').append(opt);
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+  <meta name="author" content="themefisher.com">
+
+  <title>Novena- Health & Care Medical template</title>
+
+  <!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'Patient/images/logo.png' %}" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/icofont/icofont.min.css' %}">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick-theme.css' %}">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'Patient/css/style.css' %}">
+
+</head>
+
+<body id="top">
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Book your Seat</span>
+          <h1 class="text-capitalize mb-5 text-lg">Appoinment</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="appoinment section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+          <div class="mt-3">
+            <div class="feature-icon mb-3">
+              <i class="icofont-support text-lg"></i>
+            </div>
+             <span class="h3">Call for an Emergency Service!</span>
+              <h2 class="text-color mt-3"></h2>
+          </div>
+      </div>
+
+      <div class="col-lg-8">
+           <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <h2 class="mb-2 title-color">Book an appoinment</h2>
+               <form id="#" class="appoinment-form" method="post" action="{% url 'create_appointment' %}" enctype="multipart/form-data">
+                       {% csrf_token %}
+
+                    <div class="row">
+						 <div class="col-lg-6">
+                            <div class="form-group">
+                            <input name="patient_name" id="patient_name" type="text" class="form-control" value="{{ user.Username }}" placeholder="Patient name" readonly>
+                            </div>
+                        </div>
+                         <div class="col-lg-6">
+                            <div class="form-group">
+                                <select class="form-control" id="department" name="department">
+                                  <option value="" disabled selected>Select Department</option>
+									{% for department in departments %}
+                                  <option value="{{ department.id }}">{{ department.Department_name }}</option>
+                                          {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select class="form-control" id="doctor" name="doctor">
+
+                                </select>
+                            </div>
+                        </div>
+
+                         <div class="col-lg-6">
+                            <div class="form-group">
+                            <input name="date" id="date" type="date" class="form-control" placeholder="Select Date">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="time" id="time" type="text" class="form-control" placeholder="_ _:_ _(HH:MM) Time">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group-2 mb-4">
+                        <textarea name="reason_for_visit" id="reason_for_visit" class="form-control" rows="6" placeholder="reason_for_visit"></textarea>
+                    </div>
+
+                <button type="submit" class="btn btn-main btn-round-full">Make Appointment<i class="icofont-simple-right ml-2"></i></button>
+                </form>
+
+
+
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    <!--
+    Essential Scripts
+    =====================================-->
+
+
+    <!-- Main jQuery -->
+    <!-- Bootstrap 4.3.2 -->
+    <script src="{% static 'Patient/plugins/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'Patient/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'Patient/plugins/slick-carousel/slick/slick.min.js' %}"></script>
+    <!-- Counterup -->
+
+    <script src="{% static 'Patient/plugins/shuffle/shuffle.min.js' %}"></script>
+    <!-- Google Map -->
+    <script src="{% static 'Patient/plugins/google-map/map.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
+    <script src="{% static 'Patient/js/script.js' %}"></script>
+    <script src="{% static 'Patient/js/contact.js' %}"></script>
+
+  </body>
+  </html>
+{% include 'Patient/footer.html' %}

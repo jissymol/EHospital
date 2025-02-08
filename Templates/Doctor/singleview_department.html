@@ -1,0 +1,211 @@
+<!doctype html>
+{% load static %}
+{% include 'Doctor/header.html' %}
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Department View </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animated-headline.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/fontawesome-all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/style.css' %}">
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+<main>
+    <!--? Hero Start -->
+
+    <!-- Hero End -->
+    <!--? department_area_start  -->
+    <div class="department_area section-padding2">
+        <div class="container">
+
+            <div class="dept_main_info white-bg">
+                <div class="tab-content" id="myTabContent">
+                    {% for department in departments %}
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <!-- single_content  -->
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-lg-7">
+                                <div class="dept_info">
+                                    <h3>{{department.Department_name}}</h3 >
+                                    <p>{{department.description}}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="dept_thumb">
+                                    <img src="{{ department.image.url }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single_content  -->
+                    </div>
+                    	{% endfor %}
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <!-- single_content  -->
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-lg-7">
+                                <div class="dept_info">
+                                    <h3>Dentist with surgical mask holding <br> scaler near patient</h3 >
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                    <a href="#" class="dep-btn">Appointment<i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="dept_thumb">
+                                    <img src="assets/img/gallery/department_man.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single_content  -->
+                    </div>
+                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                        <!-- single_content  -->
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-lg-7">
+                                <div class="dept_info">
+                                    <h3>Dentist with surgical mask holding <br> scaler near patient</h3 >
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                    <a href="#" class="dep-btn">Appointment<i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="dept_thumb">
+                                    <img src="assets/img/gallery/department_man.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single_content  -->
+                    </div>
+                    <div class="tab-pane fade" id="Astrology" role="tabpanel" aria-labelledby="Astrology-tab">
+                        <!-- single_content  -->
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-lg-7">
+                                <div class="dept_info">
+                                    <h3>Dentist with surgical mask holding <br> scaler near patient</h3 >
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                    <a href="#" class="dep-btn">Appointment<i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="dept_thumb">
+                                    <img src="assets/img/gallery/department_man.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single_content  -->
+                    </div>
+                    <div class="tab-pane fade" id="Neuroanatomy" role="tabpanel" aria-labelledby="Neuroanatomy-tab">
+                        <!-- single_content  -->
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-lg-7">
+                                <div class="dept_info">
+                                    <h3>Dentist with surgical mask holding <br> scaler near patient</h3 >
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                    <a href="#" class="dep-btn">Appointment<i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="dept_thumb">
+                                    <img src="assets/img/gallery/department_man.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single_content  -->
+                    </div>
+                    <div class="tab-pane fade" id="Blood" role="tabpanel" aria-labelledby="Blood-tab">
+                        <!-- single_content  -->
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-lg-7">
+                                <div class="dept_info">
+                                    <h3>Dentist with surgical mask holding <br> scaler near patient</h3 >
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+                                    <a href="#" class="dep-btn">Appointment<i class="ti-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="dept_thumb">
+                                    <img src="assets/img/gallery/department_man.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- single_content  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- department area_end  -->
+    </main>
+
+    <!-- JS here -->
+
+    <script src="{% static 'Doctor/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'Doctor/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/bootstrap.min.js' %}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{% static 'Doctor/assets/js/jquery.slicknav.min.js' %}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{% static 'Doctor/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/slick.min.js' %}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{% static 'Doctor/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/animated.headline.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.magnific-popup.js' %}"></script>
+
+    <!-- Date Picker -->
+    <script src="{% static 'Doctor/assets/js/gijgo.min.js' %}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{% static 'Doctor/assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.sticky.js' %}"></script>
+
+    <!-- counter , waypoint -->
+    <script src="{% static 'Doctor/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/waypoints.min.js' %}"></script>
+    <script src="./assets/js/jquery.countdown.min.js' %}"></script>
+    <!-- contact js -->
+    <script src="{% static 'Doctor/assets/js/contact.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.form.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/mail-script.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="{% static 'Doctor/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/main.js' %}"></script>
+
+    </body>
+</html>
+
+{% include 'Doctor/footer.html' %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Patient Register</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="{% static 'register/fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'register/css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container">
+                <div class="signup-content">
+
+
+
+                    <form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <h2 class="form-title">Register Here...</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="username" id="username" placeholder="Create UserName" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" placeholder="Your Name" required/>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-input" name="age" id="age" placeholder="Your Age" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" required/>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Upload Your Photo</label>
+                        <input type="file" placeholder="Upload your photo" name="photo" class="input--style-4" required>
+                        </div><br><br>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="phone" id="phone" placeholder="Contact Number" required/>
+
+                        </div>
+                         <div class="form-group">
+                            <input type="text" class="form-input" name="address" id="address" placeholder="Your Address" required/>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="state" id="state" placeholder="State" required/>
+
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="password1" id="password1" placeholder="Password" required/>
+                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" name="password2" id="password2" placeholder="Repeat your password" required/>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Register"/>
+                        </div>
+                    </form>
+
+                    {% if messages %}
+    <div class="messages" style="color:red">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+                    <p class="loginhere">
+                        Have already an account ? <a href="" class="loginhere-link">Login</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'register/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'register/js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

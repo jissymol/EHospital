@@ -1,0 +1,148 @@
+<!doctype html>
+{% load static %}
+{% include 'Doctor/header.html' %}
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Medical HTML-5 Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Doctor/assets/css/animated-headline.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/fontawesome-all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'Doctor/assets/css/style.css' %}">
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{% static 'Doctor/assets/img/logo/loder.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+
+<main>
+    <!--? Hero Start -->
+    <div class="slider-area2">
+        <div class="slider-height2 d-flex align-items-center">
+            <div class="container">
+                <div class="row">
+                <div class="col-xl-12">
+                    <div class="hero-cap hero-cap2 text-center">
+                         <div class="section-tittle text-center mb-100">
+                        <span>Our Doctors</span>
+                        <h2>Our Specialist</h2>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+    <!--? Team Start -->
+    <div class="team-area section-padding30">
+        <div class="container">
+            <!-- Section Tittle -->
+
+            <div class="row">
+                {% for doc in doctors %}
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
+                    <div class="single-team mb-30">
+                        <div class="team-img">
+                            <img src="{{ doc.photo.url }}" alt="">
+                        </div>
+                        <div class="team-caption">
+                            <h3><a href="#">{{doc.D_name}}</a></h3>
+                            <span>{{doc.department.Department_name}}</span>
+                            <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-tablet"></i></span>
+                            <div class="media-body">
+                                <span>{{doc.phone}}</span>
+                            </div>
+                            </div>
+                            <div class="media contact-info">
+                            <span class="contact-info__icon"><i class="ti-email"></i></span>
+                            <div class="media-body">
+                                 <span>{{doc.email}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+                 {% endfor %}
+        </div>
+    </div>
+    </div>
+    <!-- Team End -->
+    </main>
+
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+    <!-- JS here -->
+
+    <script src="{% static 'Doctor/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'Doctor/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/bootstrap.min.js' %}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{% static 'Doctor/assets/js/jquery.slicknav.min.js' %}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{% static 'Doctor/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/slick.min.js' %}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{% static 'Doctor/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/animated.headline.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.magnific-popup.js' %}"></script>
+
+    <!-- Date Picker -->
+    <script src="{% static 'Doctor/assets/js/gijgo.min.js' %}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{% static 'Doctor/assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.sticky.js' %}"></script>
+
+    <!-- counter , waypoint -->
+    <script src="{% static 'Doctor/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/waypoints.min.js' %}"></script>
+    <script src="./assets/js/jquery.countdown.min.js' %}"></script>
+    <!-- contact js -->
+    <script src="{% static 'Doctor/assets/js/contact.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.form.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/mail-script.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="{% static 'Doctor/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'Doctor/assets/js/main.js' %}"></script>
+
+    </body>
+</html>
+
+{% include 'Doctor/footer.html' %}

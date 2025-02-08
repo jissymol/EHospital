@@ -1,0 +1,12 @@
+
+
+<a href="{% url 'view_appointment' appointment.id %}">View Appointment</a>
+
+
+<h2>Appointment Details</h2>
+<p><strong>Patient Name:</strong> {{ appointment.patient_name }}</p>
+<p><strong>Doctor:</strong> {{ appointment.doctor.D_name }}</p>
+<p><strong>Date:</strong> {{ appointment.date }}</p>
+<p><strong>Time:</strong> {{ appointment.time }}</p>
+<p><strong>Status:</strong> {{ appointment.status }}</p>
+<p><strong>Reason for Visit:</strong> {{ appointment.reason_for_visit }}</p>

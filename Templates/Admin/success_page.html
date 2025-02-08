@@ -1,0 +1,12 @@
+{% extends 'Admin/index.html' %}
+
+{% block title %}
+Success
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Doctor Successfully Registered!</h2>
+    <a href="{% url 'doctor_reg' %}" class="btn btn-primary mt-3">Add Another Doctor</a>
+</div>
+{% endblock %}

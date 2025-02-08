@@ -1,0 +1,68 @@
+
+{% load static %}
+<header>
+	<div class="header-top-bar">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<ul class="top-bar-info list-inline-item pl-0 mb-0">
+					</ul>
+				</div>
+				<div class="col-lg-6">
+					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
+						<a href="tel:+23-345-67890" >
+							<span></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav class="navbar navbar-expand-lg navigation" id="navbar">
+		<div class="container">
+		 	 <a class="navbar-brand" href="index.html">
+			  	<img src="{% static 'Patient/images/logo1.png' %}" alt="" class="img-fluid">
+			  </a>
+		  	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="icofont-navigation-menu"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarmain">
+			<ul class="navbar-nav ml-auto">
+			  <li class="nav-item active">
+				<a class="nav-link" href="{% url 'D_home' %}">Home</a>
+			  </li>
+			    <li class="nav-item"><a class="nav-link" href="{% url 'health_tips' %}">Health Tips</a></li>
+			    <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown02">
+						<li><a class="dropdown-item" href="{% url 'department_view' %}">Departments</a></li>
+					</ul>
+			  	</li>
+			  	<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="doctor.html" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors <i class="icofont-thin-down"></i></a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown03">
+						<li><a class="dropdown-item" href="{% url 'doctors_view' %}">Doctors</a></li>
+						<li><a class="dropdown-item" href="{% url 'create_appointment' %}">Take an Appointment</a></li>
+					</ul>
+			  	</li>
+			   <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="blog-sidebar.html" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Appointments<i class="icofont-thin-down"></i></a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown05">
+						<li><a class="dropdown-item" href="{% url 'view_appointment' %}">Bookings</a></li>
+
+					</ul>
+			  	</li>
+						<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="blog-sidebar.html" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Medical History<i class="icofont-thin-down"></i></a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown05">
+						<li><a class="dropdown-item" href="{% url 'medical_records' %}">Medical History</a></li>
+						<li><a class="dropdown-item" href="{% url 'payment' %}">Payments</a></li>
+					</ul>
+			  	</li>
+							    <li class="nav-item"><a class="nav-link" href="{% url 'patient_logout' %}">LOGOUT</a></li>
+
+			</ul>
+		  </div>
+		</div>
+	</nav>
+</header>

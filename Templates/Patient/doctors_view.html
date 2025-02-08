@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+{% load static %}
+{% include 'Patient/header.html' %}
+<html lang="zxx">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+  <meta name="author" content="themefisher.com">
+
+  <title>Novena- Health & Care Medical template</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'Patient/images/favicon.ico' %}" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/icofont/icofont.min.css' %}">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick-theme.css' %}">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'Patient/css/style.css' %}">
+
+</head>
+
+<body id="top">
+
+
+
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">All Doctors</span>
+          <h1 class="text-capitalize mb-5 text-lg">Specalized doctors</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">All Doctors</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- portfolio -->
+<section class="section doctors">
+  <div class="container">
+	 <div class="sidebar-widget search mb-2">
+    <h5>Search Here</h5>
+    <form action="{% url 'doctors_view' %}" method="GET" class="search-form">
+        <div class="d-flex flex-column">
+            <input type="text" name="search" class="form-control mb-2" placeholder="Search Department" value="{{ search_query }}">
+            <button type="submit" class="btn btn-primary align-self-end">Search</button>
+        </div>
+    </form>
+</div>
+  </div>
+</section>
+	  <section class="section service-2">
+	<div class="container">
+		<div class="row">
+			{% for doc in doctors %}
+
+			<div class="col-lg-4 col-md-6 col-sm-6">
+				<div class="service-block mb-5">
+
+					<img src="{{ doc.photo.url }}" alt="" class="img-fluid" >
+					<div class="content">
+						<h4 class="mt-4 mb-2 title-color">{{doc.department.Department_name}}</h4>
+                        <div class="icon d-flex align-items-center">
+
+							<span class="h6 mb-2">Dr.{{doc.D_name}}</span>
+						</div>
+
+						<div class="icon d-flex align-items-center">
+							<i class="icofont-support mr-3"></i>
+							<p class="mb-2"> {{doc.phone}}</p>
+						</div>
+                        <div class="icon d-flex align-items-center">
+							<i class="icofont-email mr-3"></i>
+							<p class="mb-2"> {{doc.email}}</p>
+						</div>
+
+    					<p><a href="{% url 'doctor_singleview' doc.id %}" class="read-more">Read more</a></p>
+
+
+					</div>
+				</div>
+			</div>
+			 {% endfor %}
+  </div>
+	</div>
+</section>
+
+
+
+    <!--
+    Essential Scripts
+    =====================================-->
+
+
+    <!-- Main jQuery -->
+    <script src="{% static 'Patient/plugins/jquery/jquery.js' %}"></script>
+    <!-- Bootstrap 4.3.2 -->
+    <script src="{% static 'Patient/plugins/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'Patient/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Patient/plugins/counterup/jquery.easing.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'Patient/plugins/slick-carousel/slick/slick.min.js' %}"></script>
+    <!-- Counterup -->
+    <script src="{% static 'Patient/plugins/counterup/jquery.waypoints.min.js' %}"></script>
+
+    <script src="{% static 'Patient/plugins/shuffle/shuffle.min.js' %}"></script>
+    <script src="{% static 'Patient/plugins/counterup/jquery.counterup.min.js' %}"></script>
+    <!-- Google Map -->
+    <script src="{% static 'Patient/plugins/google-map/map.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
+    <script src="{% static 'Patient/js/script.js' %}"></script>
+    <script src="{% static 'Patient/js/contact.js' %}"></script>
+  </body>
+  </html>
+
+{% include 'Patient/footer.html' %}

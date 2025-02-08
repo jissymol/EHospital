@@ -1,0 +1,99 @@
+<!doctype html>
+{% load static %}
+{% include 'Patient/header.html' %}
+<html class="no-js" lang="zxx">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+  <meta name="author" content="themefisher.com">
+
+  <title>Novena- Health & Care Medical template</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'Patient/images/favicon.ico' %}" />
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/icofont/icofont.min.css' %}">
+  <!-- Slick Slider  CSS -->
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'Patient/plugins/slick-carousel/slick/slick-theme.css' %}">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'Patient/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Patient/style.css' %}">
+
+
+
+</head>
+<body>
+
+
+<div class="container mt-5">
+    <h2>Billing Details for {{ patient.Name }}</h2>
+
+    {% if billing_records %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Billing ID</th>
+                <th>Payment Method</th>
+                <th>Amount Due</th>
+                <th>Insurance Details</th>
+                <th>Payment Status</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in billing_records %}
+            <tr>
+                <td>{{ record.billing_id }}</td>
+                <td>{{ record.payment_method }}</td>
+                <td>${{ record.amount_due }}</td>
+                <td>{{ record.insurance_details|default:"N/A" }}</td>
+                <td>
+                    {% if record.payment_status == "Paid" %}
+                        <span class="badge bg-success">Paid</span>
+                    {% elif record.payment_status == "Pending" %}
+                        <span class="badge bg-warning">Pending</span>
+                    {% else %}
+                        <span class="badge bg-danger">Failed</span>
+                    {% endif %}
+                </td>
+                <td>{{ record.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No billing records found.</p>
+    {% endif %}
+</div>
+
+
+<!-- Main jQuery -->
+    <script src="{% static 'Patient/plugins/jquery/jquery.js' %}"></script>
+    <!-- Bootstrap 4.3.2 -->
+    <script src="{% static 'Patient/plugins/bootstrap/js/popper.js' %}"></script>
+    <script src="{% static 'Patient/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Patient/plugins/counterup/jquery.easing.js' %}"></script>
+    <!-- Slick Slider -->
+    <script src="{% static 'Patient/plugins/slick-carousel/slick/slick.min.js' %}"></script>
+    <!-- Counterup -->
+    <script src="{% static 'Patient/plugins/counterup/jquery.waypoints.min.js' %}"></script>
+
+    <script src="{% static 'Patient/plugins/shuffle/shuffle.min.js' %}"></script>
+    <script src="{% static 'Patient/plugins/counterup/jquery.counterup.min.js' %}"></script>
+    <!-- Google Map -->
+    <script src="{% static 'Patient/plugins/google-map/map.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
+
+    <script src="{% static 'Patient/js/script.js' %}"></script>
+    <script src="{% static 'Patient/js/contact.js' %}"></script>
+
+</main>
+    </body>
+</html>
+
+{% include 'Patient/footer.html' %}

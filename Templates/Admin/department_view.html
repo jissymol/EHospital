@@ -1,0 +1,85 @@
+{% extends 'Admin/index.html' %}
+
+{% load static %}
+
+{% block title %}
+Details of Users
+{% endblock %}
+
+{% block content %}
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-4">
+                <h2 class="heading-section">Available Departments</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="h5 mb-4 text-center"></h3>
+                <div class="table-wrap">
+                    <table class="table myaccordion table-hover" id="accordion">
+                        <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Department Name</th>
+                                <th>Image</th>
+                                <th>Description</th>
+
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for department in page %}
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                <td>{{ department.Department_name }} </td>
+                                <td>{{ department.description }} </td>
+                                <td>
+                                    <img src="{{ department.image.url }}" alt="" style="width:50px; height:50px;">
+                                </td>
+
+                                <td>
+                                    <a href="{% url 'deletedepartment' department.id %}" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if page.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% for num in page.paginator.page_range %}
+                            <li class="page-item {% if page.number == num %} activate{% endif %}">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                            {% endfor %}
+                            {% if page.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'Admin/tables/js/jquery.min.js' %}"></script>
+<script src="{% static 'Admin/tables/js/popper.js' %}"></script>
+<script src="{% static 'Admin/tables/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'Admin/tables/js/main.js' %}"></script>
+{% endblock %}
